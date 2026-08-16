@@ -1557,5 +1557,420 @@ document.querySelectorAll("#mainNav a").forEach(function(link){
 
 </script>
 
-</body>
+
+<script>
+/* ==========================================
+   POTA THAILAND - THAI LANGUAGE
+   Thai translation layer
+   ========================================== */
+
+document.documentElement.lang = "th";
+document.title = "POTA Thailand Community Portal - ชุมชน POTA ประเทศไทย";
+
+const metaDescription = document.querySelector('meta[name="description"]');
+if (metaDescription) {
+    metaDescription.setAttribute(
+        "content",
+        "ศูนย์ข้อมูลชุมชน POTA ประเทศไทย สำหรับกิจกรรม Parks on the Air และวิทยุสมัครเล่น"
+    );
+}
+
+/* Brand */
+const brandSub = document.querySelector(".brand-sub");
+if (brandSub) {
+    brandSub.textContent = "เว็บไซต์ชุมชน";
+}
+
+/* Main hero title */
+const heroTitle = document.querySelector(".hero h1");
+if (heroTitle) {
+    heroTitle.innerHTML =
+        'POTA <span>ประเทศไทย</span><br>พอร์ทัลชุมชน';
+}
+
+/* Text translations */
+const translations = {
+
+    "📡 POTA Thailand Community Portal":
+        "📡 ศูนย์ชุมชน POTA ประเทศไทย",
+
+    "Parks on the Air® • Thailand Amateur Radio Community":
+        "Parks on the Air® • ชุมชนวิทยุสมัครเล่นประเทศไทย",
+
+    "Home":
+        "หน้าหลัก",
+
+    "Park Map":
+        "แผนที่สวน",
+
+    "Statistics":
+        "สถิติ",
+
+    "Activation Guide":
+        "คู่มือการทำกิจกรรม",
+
+    "Community":
+        "ชุมชน",
+
+    "About":
+        "เกี่ยวกับเรา",
+
+    "🇹🇭 Thailand Amateur Radio Community":
+        "🇹🇭 ชุมชนวิทยุสมัครเล่นประเทศไทย",
+
+    "A community portal for Parks on the Air® enthusiasts in Thailand — explore parks, plan activations, discover references and connect through amateur radio.":
+        "ศูนย์กลางข้อมูลสำหรับผู้สนใจ Parks on the Air® ในประเทศไทย — สำรวจสวน วางแผนการทำกิจกรรม ค้นหาข้อมูลอ้างอิง และติดต่อสื่อสารผ่านวิทยุสมัครเล่น",
+
+    "📊 Explore Statistics":
+        "📊 ดูสถิติ",
+
+    "📡 Activation Guide":
+        "📡 คู่มือการทำกิจกรรม",
+
+    "From Parks to the Airwaves":
+        "จากสวนสู่คลื่นวิทยุ",
+
+    "Explore Thailand's POTA references, activate parks and make amateur radio contacts from beautiful natural locations.":
+        "สำรวจข้อมูลอ้างอิง POTA ในประเทศไทย ทำกิจกรรมจากสวน และติดต่อสื่อสารด้วยวิทยุสมัครเล่นจากสถานที่ธรรมชาติที่สวยงาม",
+
+    "Amateur Radio":
+        "วิทยุสมัครเล่น",
+
+    "Outdoor":
+        "กิจกรรมนอกสถานที่",
+
+    "Thailand":
+        "ประเทศไทย",
+
+    "Total References":
+        "จำนวนอ้างอิงทั้งหมด",
+
+    "POTA Thailand":
+        "POTA ประเทศไทย",
+
+    "Active References":
+        "อ้างอิงที่ใช้งานอยู่",
+
+    "Inactive References":
+        "อ้างอิงที่ไม่ได้ใช้งาน",
+
+    "Explore POTA Thailand":
+        "สำรวจ POTA ประเทศไทย",
+
+    "Everything for the POTA Community":
+        "ทุกสิ่งสำหรับชุมชน POTA",
+
+    "A central place for information, resources, park references and amateur radio activities related to POTA in Thailand.":
+        "ศูนย์กลางข้อมูล แหล่งความรู้ ข้อมูลอ้างอิงสวน และกิจกรรมวิทยุสมัครเล่นที่เกี่ยวข้องกับ POTA ในประเทศไทย",
+
+    "Thailand Park Map":
+        "แผนที่สวน POTA ประเทศไทย",
+
+    "Explore the geographic distribution of POTA references throughout Thailand.":
+        "สำรวจการกระจายตัวของข้อมูลอ้างอิง POTA ทั่วประเทศไทย",
+
+    "View map information →":
+        "ดูข้อมูลแผนที่ →",
+
+    "Park References":
+        "ข้อมูลอ้างอิงสวน",
+
+    "Find POTA references, park names, status, locations and related information.":
+        "ค้นหาข้อมูลอ้างอิง POTA ชื่อสวน สถานะ ที่ตั้ง และข้อมูลที่เกี่ยวข้อง",
+
+    "View references →":
+        "ดูข้อมูลอ้างอิง →",
+
+    "Learn the basic steps for preparing, activating and documenting a POTA activity.":
+        "เรียนรู้ขั้นตอนพื้นฐานในการเตรียมตัว ทำกิจกรรม และจัดทำบันทึกกิจกรรม POTA",
+
+    "Learn more →":
+        "เรียนรู้เพิ่มเติม →",
+
+    "Review Thailand POTA reference statistics and regional distribution.":
+        "ดูสถิติข้อมูลอ้างอิง POTA ประเทศไทย และการกระจายตัวตามภูมิภาค",
+
+    "View statistics →":
+        "ดูสถิติ →",
+
+    "Connect POTA activities with the worldwide amateur radio community.":
+        "เชื่อมโยงกิจกรรม POTA กับชุมชนวิทยุสมัครเล่นทั่วโลก",
+
+    "Resources":
+        "แหล่งข้อมูล",
+
+    "A growing collection of useful information for Thai POTA activators and hunters.":
+        "แหล่งรวมข้อมูลที่เป็นประโยชน์สำหรับผู้ทำกิจกรรมและผู้ติดตามสถานี POTA ในประเทศไทย",
+
+    "Explore resources →":
+        "ดูแหล่งข้อมูล →",
+
+    "Thailand Snapshot":
+        "ข้อมูลสรุปประเทศไทย",
+
+    "POTA Thailand Statistics":
+        "สถิติ POTA ประเทศไทย",
+
+    "Database snapshot:":
+        "ข้อมูลจากฐานข้อมูล ณ วันที่",
+
+    "📊 References by Region":
+        "📊 ข้อมูลอ้างอิงตามภูมิภาค",
+
+    "North":
+        "ภาคเหนือ",
+
+    "Northeast":
+        "ภาคตะวันออกเฉียงเหนือ",
+
+    "Central & West":
+        "ภาคกลางและภาคตะวันตก",
+
+    "East":
+        "ภาคตะวันออก",
+
+    "South":
+        "ภาคใต้",
+
+    "Other":
+        "อื่น ๆ",
+
+    "🏆 Top 10 Areas by POTA References":
+        "🏆 10 พื้นที่ที่มีข้อมูลอ้างอิง POTA มากที่สุด",
+
+    "Province":
+        "จังหวัด",
+
+    "Code":
+        "รหัส",
+
+    "References":
+        "จำนวนอ้างอิง",
+
+    "Bangkok":
+        "กรุงเทพมหานคร",
+
+    "Chiang Rai":
+        "เชียงราย",
+
+    "Chon Buri":
+        "ชลบุรี",
+
+    "Chiang Mai":
+        "เชียงใหม่",
+
+    "Surat Thani":
+        "สุราษฎร์ธานี",
+
+    "Udon Thani":
+        "อุดรธานี",
+
+    "Lampang":
+        "ลำปาง",
+
+    "Mae Hong Son":
+        "แม่ฮ่องสอน",
+
+    "Songkhla":
+        "สงขลา",
+
+    "Tak":
+        "ตาก",
+
+    "ℹ️ Data & Governance Note":
+        "ℹ️ หมายเหตุเกี่ยวกับข้อมูล",
+
+    "This dashboard represents a dated snapshot of POTA Thailand data. Counts may change when POTA references are added, edited or deactivated. Multi-location references may appear in more than one location summary.":
+        "ข้อมูลในหน้านี้เป็นภาพรวมของข้อมูล POTA ประเทศไทย ณ วันที่ระบุ จำนวนข้อมูลอ้างอิงอาจเปลี่ยนแปลงเมื่อมีการเพิ่ม แก้ไข หรือยกเลิกข้อมูลอ้างอิง และข้อมูลอ้างอิงที่ครอบคลุมหลายพื้นที่อาจปรากฏในสรุปมากกว่าหนึ่งพื้นที่",
+
+    "Thailand Map":
+        "แผนที่ประเทศไทย",
+
+    "Explore POTA References Across Thailand":
+        "สำรวจข้อมูลอ้างอิง POTA ทั่วประเทศไทย",
+
+    "The future portal will provide an interactive map showing POTA references and useful geographic information.":
+        "ในอนาคตเว็บไซต์จะมีแผนที่แบบโต้ตอบสำหรับแสดงข้อมูลอ้างอิง POTA และข้อมูลภูมิศาสตร์ที่เป็นประโยชน์",
+
+    "Thailand POTA Park Map":
+        "แผนที่สวน POTA ประเทศไทย",
+
+    "Interactive map integration will be added in the next development phase. Park coordinates can be displayed using the POTA Thailand database.":
+        "ระบบแผนที่แบบโต้ตอบจะถูกเพิ่มในระยะการพัฒนาถัดไป โดยสามารถแสดงพิกัดของสวนจากฐานข้อมูล POTA ประเทศไทย",
+
+    "Map Module — Coming Soon":
+        "ระบบแผนที่ — เร็ว ๆ นี้",
+
+    "Getting Started":
+        "เริ่มต้นใช้งาน",
+
+    "Basic POTA Activation Guide":
+        "คู่มือพื้นฐานการทำกิจกรรม POTA",
+
+    "A simple starting point for amateur radio operators interested in activating a POTA reference.":
+        "แนวทางเบื้องต้นสำหรับนักวิทยุสมัครเล่นที่สนใจทำกิจกรรมจากพื้นที่อ้างอิง POTA",
+
+    "Choose a Park":
+        "1. เลือกสวน",
+
+    "Find a suitable POTA reference and check its current status and location information.":
+        "ค้นหาข้อมูลอ้างอิง POTA ที่เหมาะสม และตรวจสอบสถานะกับข้อมูลสถานที่ในปัจจุบัน",
+
+    "Plan the Activation":
+        "2. วางแผนการทำกิจกรรม",
+
+    "Prepare your radio equipment, antenna, power, operating frequencies and safety requirements.":
+        "เตรียมเครื่องวิทยุ เสาอากาศ แหล่งจ่ายไฟ ความถี่ใช้งาน และอุปกรณ์ด้านความปลอดภัย",
+
+    "Activate":
+        "3. ทำกิจกรรม",
+
+    "Operate from the qualifying location and make amateur radio contacts according to POTA rules.":
+        "ปฏิบัติการจากสถานที่ที่เข้าเกณฑ์ และติดต่อสื่อสารด้วยวิทยุสมัครเล่นตามกฎของ POTA",
+
+    "Log & Submit":
+        "4. บันทึกและส่งข้อมูล",
+
+    "Maintain an accurate contact log and follow the official POTA process for submitting your activity.":
+        "จัดทำบันทึกการติดต่อให้ถูกต้อง และดำเนินการส่งข้อมูลกิจกรรมตามขั้นตอนของ POTA",
+
+    "Connecting Thai amateur radio operators with the worldwide Parks on the Air community.":
+        "เชื่อมโยงนักวิทยุสมัครเล่นไทยกับชุมชน Parks on the Air ทั่วโลก",
+
+    "🇹🇭 POTA Thailand":
+        "🇹🇭 POTA ประเทศไทย",
+
+    "A community-oriented portal for sharing useful information about POTA activities in Thailand.":
+        "ศูนย์กลางชุมชนสำหรับแบ่งปันข้อมูลที่เป็นประโยชน์เกี่ยวกับกิจกรรม POTA ในประเทศไทย",
+
+    "Parks":
+        "สวน",
+
+    "Activation":
+        "การทำกิจกรรม",
+
+    "DX":
+        "DX",
+
+    "Outdoor Radio":
+        "วิทยุกลางแจ้ง",
+
+    "🌎 Thailand to the World":
+        "🌎 ประเทศไทยสู่ทั่วโลก",
+
+    "POTA provides an opportunity for operators in Thailand to make contacts with radio amateurs around the world.":
+        "POTA เปิดโอกาสให้นักวิทยุสมัครเล่นในประเทศไทยติดต่อสื่อสารกับนักวิทยุสมัครเล่นทั่วโลก",
+
+    "Digital Modes":
+        "โหมดดิจิทัล",
+
+    "About This Portal":
+        "เกี่ยวกับเว็บไซต์นี้",
+
+    "POTA Thailand Community Portal":
+        "ศูนย์ชุมชน POTA ประเทศไทย",
+
+    "This community portal is designed as an independent information and community resource for amateur radio operators interested in Parks on the Air activities in Thailand.":
+        "เว็บไซต์ชุมชนแห่งนี้จัดทำขึ้นเพื่อเป็นแหล่งข้อมูลและแหล่งความรู้สำหรับนักวิทยุสมัครเล่นที่สนใจกิจกรรม Parks on the Air ในประเทศไทย",
+
+    "Discover POTA references and explore Thailand's outdoor radio opportunities.":
+        "ค้นหาข้อมูลอ้างอิง POTA และสำรวจโอกาสในการทำกิจกรรมวิทยุกลางแจ้งในประเทศไทย",
+
+    "Promote responsible amateur radio operation and outdoor radio activities.":
+        "ส่งเสริมการใช้วิทยุสมัครเล่นอย่างรับผิดชอบและกิจกรรมวิทยุกลางแจ้ง",
+
+    "Encourage knowledge sharing and cooperation among POTA enthusiasts.":
+        "ส่งเสริมการแบ่งปันความรู้และความร่วมมือระหว่างผู้สนใจ POTA",
+
+    "⚠️ Important Information":
+        "⚠️ ข้อมูลสำคัญ",
+
+    "This portal is a community information project and is not the official POTA website. Always refer to the official Parks on the Air website and current POTA rules for authoritative program information.":
+        "เว็บไซต์นี้เป็นโครงการข้อมูลสำหรับชุมชนและไม่ใช่เว็บไซต์อย่างเป็นทางการของ POTA โปรดอ้างอิงเว็บไซต์ Parks on the Air อย่างเป็นทางการและกฎ POTA ฉบับปัจจุบันสำหรับข้อมูลที่เป็นทางการ",
+
+    "Portal":
+        "เมนูเว็บไซต์",
+
+    "Official POTA Website ↗":
+        "เว็บไซต์ POTA อย่างเป็นทางการ ↗",
+
+    "POTA Documentation ↗":
+        "เอกสาร POTA ↗",
+
+    "POTA Map ↗":
+        "แผนที่ POTA ↗",
+
+    "For the Amateur Radio Community":
+        "สำหรับชุมชนวิทยุสมัครเล่น"
+};
+
+
+/* Apply translations to text nodes */
+function normalizeText(text) {
+    return text.replace(/\s+/g, " ").trim();
+}
+
+function translatePage() {
+
+    const walker = document.createTreeWalker(
+        document.body,
+        NodeFilter.SHOW_TEXT,
+        {
+            acceptNode: function(node) {
+
+                const parent = node.parentElement;
+
+                if (!parent) {
+                    return NodeFilter.FILTER_REJECT;
+                }
+
+                if (
+                    parent.tagName === "SCRIPT" ||
+                    parent.tagName === "STYLE"
+                ) {
+                    return NodeFilter.FILTER_REJECT;
+                }
+
+                return NodeFilter.FILTER_ACCEPT;
+            }
+        }
+    );
+
+    const nodes = [];
+
+    while (walker.nextNode()) {
+        nodes.push(walker.currentNode);
+    }
+
+    nodes.forEach(function(node) {
+
+        const original = normalizeText(node.nodeValue);
+
+        if (translations[original]) {
+
+            const leading = node.nodeValue.match(/^\s*/)?.[0] || "";
+            const trailing = node.nodeValue.match(/\s*$/)?.[0] || "";
+
+            node.nodeValue =
+                leading +
+                translations[original] +
+                trailing;
+        }
+    });
+}
+
+translatePage();
+
+/* Thai-friendly font */
+const thaiStyle = document.createElement("style");
+
+thaiStyle.textContent = `
+body {
+    font-family: Tahoma, "Noto Sans Thai", Arial, sans-serif;
+}
+`;
+
+document.head.appendChild(thaiStyle);
+
+</script></body>
 </html>
