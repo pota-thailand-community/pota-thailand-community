@@ -2011,7 +2011,11 @@ document.head.appendChild(thaiStyle);
                         return;
                     }
 
-                    const marker = L.marker([lat, lng]).addTo(map);
+                    const marker = L.circleMarker([lat, lng], {
+  radius: 5,
+  weight: 1,
+  fillOpacity: 0.8
+}).addTo(map);
 
                     marker.bindPopup(`
                         <strong>${park.reference || ""}</strong><br>
