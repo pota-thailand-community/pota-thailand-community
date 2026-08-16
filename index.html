@@ -1,0 +1,1561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>POTA Thailand Community Portal</title>
+
+<meta name="description" content="POTA Thailand Community Portal — Parks on the Air, park references, maps, statistics, activation guides and amateur radio activities in Thailand.">
+
+<style>
+:root{
+    --navy:#071b3a;
+    --blue:#0b4f9c;
+    --blue2:#1677c8;
+    --cyan:#20a9d8;
+    --green:#239b45;
+    --green2:#36c759;
+    --gold:#f5c400;
+    --orange:#ff8a00;
+    --red:#d72d2d;
+    --white:#ffffff;
+    --light:#f4f8fc;
+    --dark:#152238;
+    --gray:#64748b;
+    --border:#dce6f1;
+    --shadow:0 12px 35px rgba(7,27,58,.12);
+}
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:var(--light);
+    color:var(--dark);
+    line-height:1.6;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+/* =========================
+   TOP BAR
+========================= */
+
+.topbar{
+    background:#04152f;
+    color:#dcecff;
+    font-size:13px;
+    padding:8px 20px;
+}
+
+.topbar-inner{
+    max-width:1200px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(7,27,58,.97);
+    backdrop-filter:blur(12px);
+    box-shadow:0 5px 20px rgba(0,0,0,.15);
+}
+
+.navbar{
+    max-width:1200px;
+    margin:auto;
+    min-height:76px;
+    padding:12px 20px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:25px;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    min-width:250px;
+}
+
+.brand-logo{
+    width:48px;
+    height:48px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#fff,#dcecff);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:26px;
+    box-shadow:0 0 0 3px rgba(255,255,255,.15);
+}
+
+.brand-title{
+    color:#fff;
+    font-size:19px;
+    font-weight:800;
+    letter-spacing:.5px;
+}
+
+.brand-sub{
+    color:#9ecbff;
+    font-size:11px;
+}
+
+nav{
+    display:flex;
+    align-items:center;
+    gap:4px;
+}
+
+nav a{
+    color:#e8f2ff;
+    padding:9px 10px;
+    border-radius:8px;
+    font-size:13px;
+    font-weight:600;
+    transition:.25s;
+}
+
+nav a:hover{
+    background:rgba(255,255,255,.12);
+    color:#fff;
+}
+
+.menu-btn{
+    display:none;
+    background:none;
+    border:0;
+    color:white;
+    font-size:28px;
+    cursor:pointer;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    background:
+        radial-gradient(circle at 15% 20%,rgba(32,169,216,.28),transparent 30%),
+        radial-gradient(circle at 85% 30%,rgba(35,155,69,.24),transparent 28%),
+        linear-gradient(135deg,#061936 0%,#0b4f9c 58%,#087b8d 100%);
+    color:white;
+    position:relative;
+    overflow:hidden;
+}
+
+.hero:after{
+    content:"";
+    position:absolute;
+    width:500px;
+    height:500px;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:50%;
+    right:-160px;
+    top:-220px;
+    box-shadow:
+        0 0 0 60px rgba(255,255,255,.025),
+        0 0 0 120px rgba(255,255,255,.02);
+}
+
+.hero-inner{
+    max-width:1200px;
+    margin:auto;
+    padding:85px 20px 90px;
+    display:grid;
+    grid-template-columns:1.25fr .75fr;
+    align-items:center;
+    gap:50px;
+    position:relative;
+    z-index:2;
+}
+
+.badge{
+    display:inline-block;
+    background:rgba(255,255,255,.12);
+    border:1px solid rgba(255,255,255,.25);
+    border-radius:30px;
+    padding:7px 14px;
+    font-size:13px;
+    margin-bottom:18px;
+}
+
+.hero h1{
+    font-size:clamp(38px,6vw,68px);
+    line-height:1.03;
+    letter-spacing:-2px;
+    margin-bottom:18px;
+}
+
+.hero h1 span{
+    color:var(--gold);
+}
+
+.hero p{
+    max-width:700px;
+    color:#e2f1ff;
+    font-size:18px;
+    margin-bottom:28px;
+}
+
+.hero-buttons{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+}
+
+.btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:12px 20px;
+    border-radius:10px;
+    font-weight:800;
+    transition:.25s;
+    border:1px solid transparent;
+}
+
+.btn-primary{
+    background:var(--gold);
+    color:#152238;
+}
+
+.btn-primary:hover{
+    transform:translateY(-2px);
+    box-shadow:0 10px 25px rgba(245,196,0,.25);
+}
+
+.btn-outline{
+    border-color:rgba(255,255,255,.35);
+    color:white;
+    background:rgba(255,255,255,.06);
+}
+
+.btn-outline:hover{
+    background:rgba(255,255,255,.15);
+}
+
+.radio-card{
+    background:rgba(255,255,255,.10);
+    border:1px solid rgba(255,255,255,.2);
+    border-radius:22px;
+    padding:30px;
+    box-shadow:0 20px 50px rgba(0,0,0,.18);
+}
+
+.radio-icon{
+    font-size:65px;
+    margin-bottom:10px;
+}
+
+.radio-card h3{
+    font-size:25px;
+    margin-bottom:8px;
+}
+
+.radio-card p{
+    font-size:14px;
+    margin-bottom:0;
+}
+
+/* =========================
+   STATS
+========================= */
+
+.stats-wrap{
+    max-width:1200px;
+    margin:-45px auto 0;
+    padding:0 20px;
+    position:relative;
+    z-index:10;
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.stat{
+    background:white;
+    border-radius:18px;
+    padding:25px;
+    text-align:center;
+    box-shadow:var(--shadow);
+    border-top:5px solid var(--blue);
+}
+
+.stat.active{
+    border-top-color:var(--green);
+}
+
+.stat.inactive{
+    border-top-color:var(--red);
+}
+
+.stat .icon{
+    font-size:25px;
+}
+
+.stat .number{
+    display:block;
+    font-size:45px;
+    line-height:1.1;
+    font-weight:900;
+    margin:7px 0;
+}
+
+.stat.total .number{
+    color:var(--blue);
+}
+
+.stat.active .number{
+    color:var(--green);
+}
+
+.stat.inactive .number{
+    color:var(--red);
+}
+
+.stat small{
+    color:var(--gray);
+}
+
+/* =========================
+   SECTION
+========================= */
+
+section{
+    padding:80px 20px;
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+}
+
+.section-head{
+    text-align:center;
+    max-width:760px;
+    margin:0 auto 45px;
+}
+
+.eyebrow{
+    color:var(--blue);
+    text-transform:uppercase;
+    font-size:12px;
+    font-weight:900;
+    letter-spacing:2px;
+}
+
+.section-head h2{
+    font-size:38px;
+    line-height:1.15;
+    margin:8px 0 12px;
+}
+
+.section-head p{
+    color:var(--gray);
+}
+
+/* =========================
+   FEATURE CARDS
+========================= */
+
+.features{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.card{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:28px;
+    box-shadow:0 8px 25px rgba(7,27,58,.06);
+    transition:.25s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    box-shadow:var(--shadow);
+}
+
+.card-icon{
+    width:54px;
+    height:54px;
+    border-radius:14px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#e9f3ff;
+    font-size:27px;
+    margin-bottom:18px;
+}
+
+.card h3{
+    font-size:20px;
+    margin-bottom:8px;
+}
+
+.card p{
+    color:var(--gray);
+    font-size:14px;
+    margin-bottom:18px;
+}
+
+.card-link{
+    color:var(--blue);
+    font-size:13px;
+    font-weight:800;
+}
+
+/* =========================
+   DASHBOARD
+========================= */
+
+.dashboard{
+    background:#eaf2fa;
+}
+
+.dashboard-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
+}
+
+.panel{
+    background:white;
+    border-radius:18px;
+    padding:28px;
+    border:1px solid var(--border);
+    box-shadow:0 8px 25px rgba(7,27,58,.06);
+}
+
+.panel h3{
+    margin-bottom:20px;
+}
+
+.bar{
+    margin:17px 0;
+}
+
+.bar-label{
+    display:flex;
+    justify-content:space-between;
+    font-size:14px;
+    font-weight:700;
+    margin-bottom:6px;
+}
+
+.bar-track{
+    height:12px;
+    background:#e8eef5;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.bar-fill{
+    height:100%;
+    border-radius:20px;
+}
+
+.north{background:#f28c28;width:88%;}
+.northeast{background:#1c9a9f;width:98%;}
+.central{background:#7054a5;width:60%;}
+.east{background:#8baa47;width:38%;}
+.south{background:#2c9d4b;width:100%;}
+.other{background:#c73543;width:80%;}
+
+.top-table{
+    width:100%;
+    border-collapse:collapse;
+    font-size:14px;
+}
+
+.top-table th{
+    background:var(--navy);
+    color:white;
+    padding:10px;
+    text-align:left;
+}
+
+.top-table td{
+    padding:9px 10px;
+    border-bottom:1px solid var(--border);
+}
+
+.top-table tr:last-child td{
+    border-bottom:0;
+}
+
+/* =========================
+   GUIDE
+========================= */
+
+.steps{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+}
+
+.step{
+    position:relative;
+    background:white;
+    border-radius:18px;
+    padding:25px;
+    border:1px solid var(--border);
+}
+
+.step-number{
+    width:38px;
+    height:38px;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:var(--blue);
+    color:white;
+    font-weight:900;
+    margin-bottom:15px;
+}
+
+.step h3{
+    font-size:17px;
+    margin-bottom:7px;
+}
+
+.step p{
+    color:var(--gray);
+    font-size:13px;
+}
+
+/* =========================
+   COMMUNITY
+========================= */
+
+.community{
+    background:
+        linear-gradient(135deg,#071b3a,#0b4f9c);
+    color:white;
+}
+
+.community-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
+}
+
+.community .section-head p{
+    color:#d8eaff;
+}
+
+.community .eyebrow{
+    color:var(--gold);
+}
+
+.community-card{
+    background:rgba(255,255,255,.09);
+    border:1px solid rgba(255,255,255,.18);
+    border-radius:18px;
+    padding:28px;
+}
+
+.community-card h3{
+    margin-bottom:10px;
+}
+
+.community-card p{
+    color:#d6e6f8;
+    font-size:14px;
+}
+
+.tag-list{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-top:18px;
+}
+
+.tag{
+    background:rgba(255,255,255,.12);
+    border:1px solid rgba(255,255,255,.18);
+    padding:6px 10px;
+    border-radius:20px;
+    font-size:12px;
+}
+
+/* =========================
+   NOTICE
+========================= */
+
+.notice{
+    background:#fff9df;
+    border:1px solid #f3df89;
+    border-left:5px solid var(--gold);
+    border-radius:12px;
+    padding:20px;
+    margin-top:30px;
+}
+
+.notice strong{
+    color:#8a6900;
+}
+
+.notice p{
+    color:#685b31;
+    font-size:13px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    background:#031329;
+    color:#b8cbe0;
+    padding:50px 20px 25px;
+}
+
+.footer-grid{
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:1.4fr 1fr 1fr;
+    gap:40px;
+}
+
+footer h3{
+    color:white;
+    margin-bottom:15px;
+}
+
+footer p,
+footer li{
+    font-size:13px;
+}
+
+footer ul{
+    list-style:none;
+}
+
+footer li{
+    margin:8px 0;
+}
+
+footer a:hover{
+    color:white;
+}
+
+.footer-bottom{
+    max-width:1200px;
+    margin:35px auto 0;
+    padding-top:20px;
+    border-top:1px solid rgba(255,255,255,.1);
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+    font-size:12px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:950px){
+
+    nav{
+        display:none;
+        position:absolute;
+        left:15px;
+        right:15px;
+        top:70px;
+        background:#071b3a;
+        padding:12px;
+        border-radius:14px;
+        flex-direction:column;
+        align-items:stretch;
+        box-shadow:var(--shadow);
+    }
+
+    nav.show{
+        display:flex;
+    }
+
+    nav a{
+        padding:12px;
+    }
+
+    .menu-btn{
+        display:block;
+    }
+
+    .hero-inner{
+        grid-template-columns:1fr;
+        padding-top:60px;
+    }
+
+    .features{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .steps{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+@media(max-width:650px){
+
+    .topbar-inner{
+        justify-content:center;
+    }
+
+    .topbar-inner span:last-child{
+        display:none;
+    }
+
+    .brand-title{
+        font-size:16px;
+    }
+
+    .brand-sub{
+        font-size:9px;
+    }
+
+    .hero h1{
+        font-size:42px;
+    }
+
+    .hero p{
+        font-size:15px;
+    }
+
+    .stats{
+        grid-template-columns:1fr;
+    }
+
+    .features,
+    .dashboard-grid,
+    .community-grid,
+    .steps,
+    .footer-grid{
+        grid-template-columns:1fr;
+    }
+
+    section{
+        padding:60px 16px;
+    }
+
+    .section-head h2{
+        font-size:30px;
+    }
+
+    .footer-bottom{
+        flex-direction:column;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+    <div class="topbar-inner">
+        <span>📡 POTA Thailand Community Portal</span>
+        <span>Parks on the Air® • Thailand Amateur Radio Community</span>
+    </div>
+</div>
+
+<!-- HEADER -->
+<header>
+    <div class="navbar">
+
+        <a class="brand" href="#home">
+            <div class="brand-logo">🌳</div>
+            <div>
+                <div class="brand-title">POTA THAILAND</div>
+                <div class="brand-sub">COMMUNITY PORTAL</div>
+            </div>
+        </a>
+
+        <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+        <nav id="mainNav">
+            <a href="#home">Home</a>
+            <a href="#pota">POTA</a>
+            <a href="#map">Park Map</a>
+            <a href="#statistics">Statistics</a>
+            <a href="#guide">Activation Guide</a>
+            <a href="#community">Community</a>
+            <a href="#about">About</a>
+        </nav>
+
+    </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+
+    <div class="hero-inner">
+
+        <div>
+
+            <span class="badge">
+                🇹🇭 Thailand Amateur Radio Community
+            </span>
+
+            <h1>
+                POTA <span>THAILAND</span><br>
+                COMMUNITY PORTAL
+            </h1>
+
+            <p>
+                A community portal for Parks on the Air® enthusiasts
+                in Thailand — explore parks, plan activations,
+                discover references and connect through amateur radio.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#statistics" class="btn btn-primary">
+                    📊 Explore Statistics
+                </a>
+
+                <a href="#guide" class="btn btn-outline">
+                    📡 Activation Guide
+                </a>
+            </div>
+
+        </div>
+
+        <div class="radio-card">
+
+            <div class="radio-icon">📻</div>
+
+            <h3>
+                From Parks to the Airwaves
+            </h3>
+
+            <p>
+                Explore Thailand's POTA references,
+                activate parks and make amateur radio contacts
+                from beautiful natural locations.
+            </p>
+
+            <div class="tag-list">
+                <span class="tag">POTA</span>
+                <span class="tag">Amateur Radio</span>
+                <span class="tag">Outdoor</span>
+                <span class="tag">Thailand</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- STATS -->
+<div class="stats-wrap">
+
+    <div class="stats">
+
+        <div class="stat total">
+            <div class="icon">🌳</div>
+            <span class="number">882</span>
+            <strong>Total References</strong>
+            <small>POTA Thailand</small>
+        </div>
+
+        <div class="stat active">
+            <div class="icon">🟢</div>
+            <span class="number">858</span>
+            <strong>Active References</strong>
+            <small>97% of total</small>
+        </div>
+
+        <div class="stat inactive">
+            <div class="icon">🔴</div>
+            <span class="number">24</span>
+            <strong>Inactive References</strong>
+            <small>3% of total</small>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- POTA -->
+<section id="pota">
+
+    <div class="container">
+
+        <div class="section-head">
+
+            <div class="eyebrow">Explore POTA Thailand</div>
+
+            <h2>
+                Everything for the POTA Community
+            </h2>
+
+            <p>
+                A central place for information, resources,
+                park references and amateur radio activities
+                related to POTA in Thailand.
+            </p>
+
+        </div>
+
+        <div class="features">
+
+            <div class="card">
+                <div class="card-icon">🗺️</div>
+                <h3>Thailand Park Map</h3>
+                <p>
+                    Explore the geographic distribution of POTA
+                    references throughout Thailand.
+                </p>
+                <a class="card-link" href="#map">
+                    View map information →
+                </a>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🌳</div>
+                <h3>Park References</h3>
+                <p>
+                    Find POTA references, park names, status,
+                    locations and related information.
+                </p>
+                <a class="card-link" href="#statistics">
+                    View references →
+                </a>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">📡</div>
+                <h3>Activation Guide</h3>
+                <p>
+                    Learn the basic steps for preparing,
+                    activating and documenting a POTA activity.
+                </p>
+                <a class="card-link" href="#guide">
+                    Learn more →
+                </a>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">📊</div>
+                <h3>Statistics</h3>
+                <p>
+                    Review Thailand POTA reference statistics
+                    and regional distribution.
+                </p>
+                <a class="card-link" href="#statistics">
+                    View statistics →
+                </a>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">📻</div>
+                <h3>Amateur Radio</h3>
+                <p>
+                    Connect POTA activities with the worldwide
+                    amateur radio community.
+                </p>
+                <a class="card-link" href="#community">
+                    Community →
+                </a>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">📚</div>
+                <h3>Resources</h3>
+                <p>
+                    A growing collection of useful information
+                    for Thai POTA activators and hunters.
+                </p>
+                <a class="card-link" href="#about">
+                    Explore resources →
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- STATISTICS -->
+<section class="dashboard" id="statistics">
+
+    <div class="container">
+
+        <div class="section-head">
+
+            <div class="eyebrow">Thailand Snapshot</div>
+
+            <h2>POTA Thailand Statistics</h2>
+
+            <p>
+                Database snapshot: <strong>15 August 2026</strong>
+            </p>
+
+        </div>
+
+        <div class="dashboard-grid">
+
+            <!-- REGION -->
+            <div class="panel">
+
+                <h3>📊 References by Region</h3>
+
+                <div class="bar">
+                    <div class="bar-label">
+                        <span>North</span>
+                        <span>173</span>
+                    </div>
+                    <div class="bar-track">
+                        <div class="bar-fill north"></div>
+                    </div>
+                </div>
+
+                <div class="bar">
+                    <div class="bar-label">
+                        <span>Northeast</span>
+                        <span>191</span>
+                    </div>
+                    <div class="bar-track">
+                        <div class="bar-fill northeast"></div>
+                    </div>
+                </div>
+
+                <div class="bar">
+                    <div class="bar-label">
+                        <span>Central &amp; West</span>
+                        <span>117</span>
+                    </div>
+                    <div class="bar-track">
+                        <div class="bar-fill central"></div>
+                    </div>
+                </div>
+
+                <div class="bar">
+                    <div class="bar-label">
+                        <span>East</span>
+                        <span>74</span>
+                    </div>
+                    <div class="bar-track">
+                        <div class="bar-fill east"></div>
+                    </div>
+                </div>
+
+                <div class="bar">
+                    <div class="bar-label">
+                        <span>South</span>
+                        <span>195</span>
+                    </div>
+                    <div class="bar-track">
+                        <div class="bar-fill south"></div>
+                    </div>
+                </div>
+
+                <div class="bar">
+                    <div class="bar-label">
+                        <span>Other</span>
+                        <span>155</span>
+                    </div>
+                    <div class="bar-track">
+                        <div class="bar-fill other"></div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- TOP AREAS -->
+            <div class="panel">
+
+                <h3>🏆 Top 10 Areas by POTA References</h3>
+
+                <table class="top-table">
+
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Province</th>
+                            <th>Code</th>
+                            <th>References</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td>1</td>
+                            <td>Bangkok</td>
+                            <td>BM</td>
+                            <td>5</td>
+                        </tr>
+
+                        <tr>
+                            <td>2</td>
+                            <td>Chiang Rai</td>
+                            <td>CR</td>
+                            <td>42</td>
+                        </tr>
+
+                        <tr>
+                            <td>3</td>
+                            <td>Chon Buri</td>
+                            <td>CB</td>
+                            <td>35</td>
+                        </tr>
+
+                        <tr>
+                            <td>4</td>
+                            <td>Chiang Mai</td>
+                            <td>CM</td>
+                            <td>33</td>
+                        </tr>
+
+                        <tr>
+                            <td>5</td>
+                            <td>Surat Thani</td>
+                            <td>ST</td>
+                            <td>30</td>
+                        </tr>
+
+                        <tr>
+                            <td>6</td>
+                            <td>Udon Thani</td>
+                            <td>UN</td>
+                            <td>19</td>
+                        </tr>
+
+                        <tr>
+                            <td>7</td>
+                            <td>Lampang</td>
+                            <td>LG</td>
+                            <td>26</td>
+                        </tr>
+
+                        <tr>
+                            <td>8</td>
+                            <td>Mae Hong Son</td>
+                            <td>MH</td>
+                            <td>25</td>
+                        </tr>
+
+                        <tr>
+                            <td>9</td>
+                            <td>Songkhla</td>
+                            <td>SG</td>
+                            <td>20</td>
+                        </tr>
+
+                        <tr>
+                            <td>10</td>
+                            <td>Tak</td>
+                            <td>TK</td>
+                            <td>20</td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+        <div class="notice">
+
+            <strong>ℹ️ Data &amp; Governance Note</strong>
+
+            <p>
+                This dashboard represents a dated snapshot of POTA Thailand data.
+                Counts may change when POTA references are added, edited or deactivated.
+                Multi-location references may appear in more than one location summary.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- MAP -->
+<section id="map">
+
+    <div class="container">
+
+        <div class="section-head">
+
+            <div class="eyebrow">Thailand Map</div>
+
+            <h2>Explore POTA References Across Thailand</h2>
+
+            <p>
+                The future portal will provide an interactive map
+                showing POTA references and useful geographic information.
+            </p>
+
+        </div>
+
+        <div class="card" style="text-align:center;padding:55px 25px;">
+
+            <div style="font-size:70px;">🗺️</div>
+
+            <h3 style="font-size:28px;margin:12px 0;">
+                Thailand POTA Park Map
+            </h3>
+
+            <p style="max-width:650px;margin:0 auto 20px;">
+                Interactive map integration will be added in the next
+                development phase. Park coordinates can be displayed
+                using the POTA Thailand database.
+            </p>
+
+            <span class="badge" style="
+                background:#eaf3ff;
+                color:#0b4f9c;
+                border-color:#c8ddf4;
+            ">
+                Map Module — Coming Soon
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- GUIDE -->
+<section id="guide">
+
+    <div class="container">
+
+        <div class="section-head">
+
+            <div class="eyebrow">Getting Started</div>
+
+            <h2>Basic POTA Activation Guide</h2>
+
+            <p>
+                A simple starting point for amateur radio operators
+                interested in activating a POTA reference.
+            </p>
+
+        </div>
+
+        <div class="steps">
+
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>Choose a Park</h3>
+                <p>
+                    Find a suitable POTA reference and check its
+                    current status and location information.
+                </p>
+            </div>
+
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>Plan the Activation</h3>
+                <p>
+                    Prepare your radio equipment, antenna, power,
+                    operating frequencies and safety requirements.
+                </p>
+            </div>
+
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>Activate</h3>
+                <p>
+                    Operate from the qualifying location and make
+                    amateur radio contacts according to POTA rules.
+                </p>
+            </div>
+
+            <div class="step">
+                <div class="step-number">4</div>
+                <h3>Log &amp; Submit</h3>
+                <p>
+                    Maintain an accurate contact log and follow the
+                    official POTA process for submitting your activity.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- COMMUNITY -->
+<section class="community" id="community">
+
+    <div class="container">
+
+        <div class="section-head">
+
+            <div class="eyebrow">Community</div>
+
+            <h2>
+                From Parks to the Airwaves
+            </h2>
+
+            <p>
+                Connecting Thai amateur radio operators with
+                the worldwide Parks on the Air community.
+            </p>
+
+        </div>
+
+        <div class="community-grid">
+
+            <div class="community-card">
+
+                <h3>🇹🇭 POTA Thailand</h3>
+
+                <p>
+                    A community-oriented portal for sharing useful
+                    information about POTA activities in Thailand.
+                </p>
+
+                <div class="tag-list">
+                    <span class="tag">Parks</span>
+                    <span class="tag">Amateur Radio</span>
+                    <span class="tag">Activation</span>
+                    <span class="tag">DX</span>
+                    <span class="tag">Outdoor Radio</span>
+                </div>
+
+            </div>
+
+            <div class="community-card">
+
+                <h3>🌎 Thailand to the World</h3>
+
+                <p>
+                    POTA provides an opportunity for operators in
+                    Thailand to make contacts with radio amateurs
+                    around the world.
+                </p>
+
+                <div class="tag-list">
+                    <span class="tag">HF</span>
+                    <span class="tag">VHF</span>
+                    <span class="tag">SSB</span>
+                    <span class="tag">CW</span>
+                    <span class="tag">Digital Modes</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+
+    <div class="container">
+
+        <div class="section-head">
+
+            <div class="eyebrow">About This Portal</div>
+
+            <h2>
+                POTA Thailand Community Portal
+            </h2>
+
+            <p>
+                This community portal is designed as an independent
+                information and community resource for amateur radio
+                operators interested in Parks on the Air activities
+                in Thailand.
+            </p>
+
+        </div>
+
+        <div class="features">
+
+            <div class="card">
+                <div class="card-icon">🌳</div>
+                <h3>Parks</h3>
+                <p>
+                    Discover POTA references and explore
+                    Thailand's outdoor radio opportunities.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">📡</div>
+                <h3>Radio</h3>
+                <p>
+                    Promote responsible amateur radio operation
+                    and outdoor radio activities.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🤝</div>
+                <h3>Community</h3>
+                <p>
+                    Encourage knowledge sharing and cooperation
+                    among POTA enthusiasts.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="notice">
+
+            <strong>⚠️ Important Information</strong>
+
+            <p>
+                This portal is a community information project and
+                is not the official POTA website. Always refer to the
+                official Parks on the Air website and current POTA rules
+                for authoritative program information.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+
+    <div class="footer-grid">
+
+        <div>
+            <h3>🌳 POTA Thailand Community Portal</h3>
+
+            <p>
+                Parks on the Air® community resources,
+                park references, statistics, activation guides
+                and amateur radio activities in Thailand.
+            </p>
+
+            <p style="margin-top:15px;">
+                📡 From Parks to the Airwaves<br>
+                🇹🇭 From Thailand to the World
+            </p>
+        </div>
+
+        <div>
+            <h3>Portal</h3>
+
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#statistics">Statistics</a></li>
+                <li><a href="#map">Park Map</a></li>
+                <li><a href="#guide">Activation Guide</a></li>
+                <li><a href="#community">Community</a></li>
+            </ul>
+        </div>
+
+        <div>
+            <h3>Resources</h3>
+
+            <ul>
+                <li>
+                    <a href="https://parksontheair.com/"
+                       target="_blank"
+                       rel="noopener">
+                        Official POTA Website ↗
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://docs.pota.app/"
+                       target="_blank"
+                       rel="noopener">
+                        POTA Documentation ↗
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://parksontheair.com/map"
+                       target="_blank"
+                       rel="noopener">
+                        POTA Map ↗
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+
+        <span>
+            © 2026 POTA Thailand Community Portal
+        </span>
+
+        <span>
+            73 de HS4YSB • For the Amateur Radio Community
+        </span>
+
+    </div>
+
+</footer>
+
+<script>
+
+function toggleMenu(){
+
+    const nav = document.getElementById("mainNav");
+
+    nav.classList.toggle("show");
+
+}
+
+document.querySelectorAll("#mainNav a").forEach(function(link){
+
+    link.addEventListener("click", function(){
+
+        document.getElementById("mainNav").classList.remove("show");
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>
